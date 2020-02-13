@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title','Login')
 @section('content')
 @if ($errors->any())
     <div class="alert alert-danger">

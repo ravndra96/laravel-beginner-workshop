@@ -24,7 +24,8 @@ Route::group(['prefix' => 'login'], function () {
     Route::get('', 'LoginController@view');
     Route::post('', 'LoginController@makeLogin');
 });
+Route::group(['middleware' => 'login_check'], function () {
+    Route::get('my_posts', 'MyPostController@view');
+    Route::get('create_post', 'MyPostController@create_post');
+});
 Route::get('logout', 'LoginController@logout');
-
-Route::get('dashboard', 'DashboardController@view');
-

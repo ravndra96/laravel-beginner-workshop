@@ -19,7 +19,7 @@ class LoginController extends Controller {
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect('/dashboard');
+            return redirect('/');
         } else {
             return redirect('/login')->withErrors(['error' => 'Please enter valid email and password']);
         }
