@@ -12,10 +12,11 @@
  */
 
 Route::get('/', function () {
-    return view('default.welcome');
+    return view('pages.welcome'); //default return view('welcome');
 });
 
 Route::group(['prefix' => 'register'], function () {
     Route::get('', 'RegisterController@view');
     Route::post('', 'RegisterController@save');
 });
+Route::get('dashboard', 'DashboardController@view');
