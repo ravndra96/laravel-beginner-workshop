@@ -19,4 +19,12 @@ Route::group(['prefix' => 'register'], function () {
     Route::get('', 'RegisterController@view');
     Route::post('', 'RegisterController@save');
 });
+
+Route::group(['prefix' => 'login'], function () {
+    Route::get('', 'LoginController@view');
+    Route::post('', 'LoginController@makeLogin');
+});
+Route::get('logout', 'LoginController@logout');
+
 Route::get('dashboard', 'DashboardController@view');
+

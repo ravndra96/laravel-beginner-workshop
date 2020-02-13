@@ -5,6 +5,7 @@
 </div>
 <div class="links">
     <a href="/posts">Posts</a>
+    <a href="/logout">Logout</a>
 </div>
 
 <!-- jQuery library 

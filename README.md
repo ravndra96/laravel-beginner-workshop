@@ -21,3 +21,13 @@
 5. save user 
 6. login user directly
 7. redirect user to dashboard
+
+
+# start workflow regarding login.
+
+1. create login view page.
+    1.1. create login form.
+2. create login route.
+3. create login controller.
+4. login by Auth::attempt
+5. redirect user to dashboard
