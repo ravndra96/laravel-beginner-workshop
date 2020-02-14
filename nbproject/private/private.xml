@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/routes/web.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/README.md</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/pages/register.blade.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/pages/welcome.blade.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/snippets/header.blade.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/pages/create_post.blade.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/app/Http/Kernel.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/public/css/style.css</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/.env</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/app/Http/Controllers/MyPostController.php</file>
+        </group>
     </open-files>
 </project-private>
