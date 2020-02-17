@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title',Auth::user()->name)
+@section('title','Post')
 @section('content')
 @if (session('success'))
 <div class="success" style="color:teal">
@@ -25,7 +25,7 @@ if ($liked > 0) {
 }
 ?>
 <?php
-if ($post->user_id == Auth::user()->id) {
+if (Auth::check() && $post->user_id == Auth::user()->id) {
     ?>
     <h4 class="">Likes</h4>
     <table style="width:100%;">

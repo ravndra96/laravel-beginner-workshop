@@ -7,6 +7,7 @@ use Validator;
 use App\Post;
 use Auth;
 use Str;
+use Illuminate\Validation\Rule;
 
 class MyPostController extends Controller {
 
@@ -40,10 +41,42 @@ class MyPostController extends Controller {
         $post = new Post();
         $post->title = $request->title;
         $post->handle = Str::slug($request->title, '-');
-        ;
         $post->content = $request->content;
         Auth::user()->posts()->save($post);
         return redirect('/my_posts')->with('success', 'Your post has been published successfully');
+    }
+
+    function edit_post(Request $request, $id) {
+        $data = $request->all();
+        $rules = [
+            "title" => [
+                'required',
+                'max:255',
+                Rule::unique('posts')->ignore($id)
+            ],
+            "content" => 'required|min:1',
+        ];
+        $message = [
+            "title.unique" => "Please enter other title"
+        ];
+        $validator = Validator::make($data, $rules, $message);
+        if ($validator->fails()) {
+            return redirect('/edit_post/' . $id)
+                            ->withErrors($validator)
+                            ->withInput();
+        }
+        $post = Post::find($id);
+        $post->title = $request->title;
+        $post->handle = Str::slug($request->title, '-');
+        ;
+        $post->content = $request->content;
+        $post->save();
+        return redirect('/edit_post/' . $id)->with('success', 'Your post has been updated successfully');
+    }
+
+    function delete_post(Request $request, $id) {
+        Post::find($id)->delete();
+        return redirect('/my_posts/')->with('success', 'Your post has been deleted successfully');
     }
 
     //

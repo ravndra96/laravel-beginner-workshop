@@ -30,10 +30,14 @@ Route::group(['middleware' => 'login_check'], function () {
     Route::post('save_post', 'MyPostController@save_post');
     Route::get('edit_post/{id}', 'MyPostController@edit_view_post');
     Route::post('edit_post/{id}', 'MyPostController@edit_post');
+    Route::get('delete_post/{id}', 'MyPostController@delete_post');
 });
-Route::group(['prefix'=>'newsfeed'], function () {
+Route::group(['prefix' => 'newsfeed'], function () {
+    Route::get('/', 'NewsFeedController@view');
     Route::get('/{handle}', 'NewsFeedController@view_post');
-    Route::get('/{handle}/like', 'NewsFeedController@like');
-    Route::get('/{handle}/dislike', 'NewsFeedController@dislike');
+    Route::group(['middleware' => 'login_check'], function () {
+        Route::get('/{handle}/like', 'NewsFeedController@like');
+        Route::get('/{handle}/dislike', 'NewsFeedController@dislike');
+    });
 });
 Route::get('logout', 'LoginController@logout');

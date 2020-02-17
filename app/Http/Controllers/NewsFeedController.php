@@ -10,8 +10,14 @@ use App\Like;
 class NewsFeedController extends Controller {
 
     //
-    function view() {
-        
+    function view(Request $request) {
+        $limit = ($request->has('limit')) ? $request->limit : 10;
+        $posts = Post::orderByDesc('created_at')->paginate($limit);
+        $posts->appends(['limit' => $limit]);
+//        return $posts;
+        return view('pages.newsfeed', [
+            "posts" => $posts
+        ]);
     }
 
     function view_post(Request $request, $handle) {
@@ -19,9 +25,10 @@ class NewsFeedController extends Controller {
         if (!$post) {
             abort(404);
         }
+
         return view('pages.newsfeed_post')->with([
                     'post' => $post,
-                    'liked' => Like::where('user_id', Auth::user()->id)->where('post_id', $post->id)->count()
+                    'liked' => (Auth::check()) ? Like::where('user_id', Auth::user()->id)->where('post_id', $post->id)->count() : 0
         ]);
         return $handle;
     }
@@ -37,6 +44,7 @@ class NewsFeedController extends Controller {
             return redirect('/newsfeed/' . $handle)->with('success', 'Liked');
         }
     }
+
     function dislike(Request $request, $handle) {
         $post = Post::where('handle', $handle)->first();
         $user_id = Auth::user()->id;
