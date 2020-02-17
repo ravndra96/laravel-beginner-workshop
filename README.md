@@ -1,33 +1,11 @@
-# remove unwanted files and code
-1. remove packages.json file
-2. remove webpack.mix.js file
-3. remove default navigations and add three routes.
+# How to get started?
 
-# create main layout file for default html structure to display content in all files.
+1. Create database in local mysql -> laravel_beginner_workshop
+2. Update .env file as per your database username and password 
+   2.1 DB_USERNAME
+   2.2 DB_PASSWORD
+   2.3 DB_DATABASE
 
-1. create layout/main.blade.php
-2. @extends('layout.main') extend it to display in all routes.
-3. @section('content') for display page content @endsection
-4. copy welcome.blade.php to pages directory in views.
-5. change app name in env file and use it in welcome page.
-
-# start workflow regarding registration.
-
-1. create register view page.
-    1.1. create register form. and explain csrf cross-site request forgery security option for post method 
-2. create register route.
-3. create register controller.
-4. create validation 
-5. save user 
-6. login user directly
-7. redirect user to dashboard
-
-
-# start workflow regarding login.
-
-1. create login view page.
-    1.1. create login form.
-2. create login route.
-3. create login controller.
-4. login by Auth::attempt
-5. redirect user to dashboard
+3. Go to project's root directory in CMD/terminal.
+4. run "php artisan serve"
+5. open the url as displayed in the CMD/terminal

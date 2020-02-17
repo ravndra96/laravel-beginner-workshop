@@ -26,6 +26,7 @@ Route::group(['prefix' => 'login'], function () {
 });
 Route::group(['middleware' => 'login_check'], function () {
     Route::get('my_posts', 'MyPostController@view');
+    Route::get('my_likes', 'MyLikeController@view');
     Route::get('create_post', 'MyPostController@create_post');
     Route::post('save_post', 'MyPostController@save_post');
     Route::get('edit_post/{id}', 'MyPostController@edit_view_post');
