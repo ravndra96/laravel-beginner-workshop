@@ -4,13 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/milind/projects/laravel-beginner-workshop/routes/web.php</file>
-            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/pages/edit_post.blade.php</file>
-            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/pages/newsfeed_post.blade.php</file>
-            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/snippets/header.blade.php</file>
             <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/pages/welcome.blade.php</file>
-            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/pages/newsfeed.blade.php</file>
-            <file>file:/Users/milind/projects/laravel-beginner-workshop/app/Http/Controllers/NewsFeedController.php</file>
-            <file>file:/Users/milind/projects/laravel-beginner-workshop/app/Http/Controllers/MyPostController.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/pages/my_likes.blade.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/app/Like.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/README.md</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/app/Http/Controllers/MyLikeController.php</file>
+            <file>file:/Users/milind/projects/laravel-beginner-workshop/resources/views/pages/newsfeed_post.blade.php</file>
         </group>
     </open-files>
 </project-private>
