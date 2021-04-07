@@ -10,16 +10,18 @@
         </ul>
     </div>
 @endif
-<form method="post" action="/save_post">
-    <div class="form-group">
-        <label>Title:</label>
+<form method="post" action="/save_post" class="create-post-form">
+    <div class="mb-3">
+        <label class="form-label">Title</label>
         <input type="text" class="form-control" name="title" value='{{ old('title') }}'>
     </div>
-    <div class="form-group">
-        <label>Content:</label>
+    <div class="mb-3">
+        <label class="form-label">Content</label>
         <textarea type="text" class="form-control" name="content" value='{{ old('content') }}'></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary create-button">Create</button>
+    </div>
     @csrf
 </form>
 @endsection

@@ -10,16 +10,18 @@
     </ul>
 </div>
 @endif
-<form method="post" action="/login">
-    <div class="form-group">
-        <label>Email address</label>
-        <input type="text" class="form-control" name="email" value='{{ old('email') }}'>
+<form method="post" action="/login" class="login-form">
+    <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" value='{{ old('email') }}'>
     </div>
-    <div class="form-group">
-        <label>Password</label>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
         <input type="password" class="form-control" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary login-button">Log In</button>
+    </div>
     @csrf
 </form>
 

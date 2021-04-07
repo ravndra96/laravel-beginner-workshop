@@ -6,35 +6,33 @@
     {{ session('success') }}
 </div>
 @endif
-<a href='/create_post' class="">Create Post</a>
-<table style="width:100%;margin-top:15px">
-    <thead>
-    <th>ID</th>
-    <th>Title</th>
-    <th>Action</th>
-</thead>
-<tbody>
+<a class="justify-content-end mb-3 btn btn-sm btn-outline-primary" href='/create_post' class="">Create Post</a>
+<?php
+if (Auth::user()->posts->count() <= 0) {
+    ?>
+    <h5>No post</h5>
+<?php } else {
+    ?>
     <?php
-    if (Auth::user()->posts->count() <= 0) {
+    foreach (Auth::user()->posts as $post) {
         ?>
-        <tr><td colspan="2">No Post</td></tr>
+        <div class="row post-div">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $post->title ?></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><?php echo $post->content ?></h6>
+                        <p class="card-text"><?php echo 'Total likes: ' . $post->likes()->count() ?></p>
+                        <a class="btn btn-sm btn-outline-primary" href="/newsfeed/<?php echo $post->handle ?>">View</a>
+                        <a class="btn btn-sm btn-outline-success" href="/edit_post/<?php echo $post->id ?>">Edit</a>
+                        <a class="btn btn-sm btn-outline-danger" href="/delete_post/<?php echo $post->id ?>">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php
-    } else {
-        foreach (Auth::user()->posts as $post) {
-            ?>
-            <tr>
-                <td><?php echo $post->id ?></td>
-                <td><?php echo $post->title . ' (' . $post->likes()->count() . ')' ?></td>
-                <td>
-                    <a href="/newsfeed/<?php echo $post->handle ?>">View</a>
-                    <a href="/edit_post/<?php echo $post->id ?>">Edit</a>
-                    <a href="/delete_post/<?php echo $post->id ?>">Delete</a>
-                </td>
-            </tr>
-            <?php
-        }
     }
     ?>
-</tbody>
-</table>
+<?php }
+?>
 @endsection

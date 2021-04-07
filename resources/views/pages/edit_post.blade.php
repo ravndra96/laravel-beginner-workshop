@@ -15,16 +15,18 @@
     {{ session('success') }}
 </div>
 @endif
-<form method="post" action="/edit_post/{{ $post->id }}">
-    <div class="form-group">
-        <label>Title:</label>
+<form method="post" action="/edit_post/{{ $post->id }}" class="update-post-form">
+    <div class="mb-3">
+        <label class="form-label">Title</label>
         <input type="text" class="form-control" name="title" value='{{ $post->title }}'>
     </div>
-    <div class="form-group">
-        <label>Content:</label>
+    <div class="mb-3">
+        <label class="form-label">Content</label>
         <textarea type="text" class="form-control" name="content" value=''>{{ $post->content }}</textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary update-post-button">Update</button>
+    </div>
     @csrf
 </form>
 @endsection

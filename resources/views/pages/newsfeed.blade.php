@@ -6,46 +6,56 @@
     {{ session('success') }}
 </div>
 @endif
-<h3>New Posts</h3>
-<?php
-if (count($posts) > 0) {
+<h3 class="text-center">New Posts</h3>
+<?php if (count($posts) > 0) { ?>
+    <?php
     foreach ($posts as $post) {
         ?>
-        <h5><a href="/newsfeed/{{ $post->handle }}"><?php echo $post->title ?></a></h5>
+        <div class="row post-div">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $post->title ?></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><?php echo $post->content ?></h6>
+                        <p class="card-text"><?php echo 'Total likes: ' . $post->likes()->count() ?></p>
+                        <a href="/newsfeed/{{ $post->handle }}">Go to post</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php
     }
     ?>
-    <?php
-} else {
-    ?>
-    <h5>No Post</h5>
-    <?php
-}
-?>
-{{-- $posts->links() --}}
-
-<?php
-// dd($posts->lastPage());
-?>
-
-<?php
-if (count($posts) > 0) {
-    ?>
-    <div class="pagination">
-        <a href="{{ $posts->url(1) }}">First</a>
-        <a href="{{ $posts->previousPageUrl() }}">Previous</a>
-        <?php
-        if ($posts->lastPage() > 2) {
-            for ($i = 1; $i <= $posts->lastPage(); $i++) {
-                ?>
-                <a href="{{ $posts->url($i) }}"><?php echo $i ?></a>
-                <?php
+    <nav class="post-pagination">
+        <ul class="pagination justify-content-end">
+            <li class="page-item">
+                <a class="page-link" href="{{ $posts->url(1) }}">First</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="{{ $posts->previousPageUrl() }}">Previous</a>
+            </li>
+            <?php
+            if ($posts->lastPage() >= 1) {
+                for ($i = 1; $i <= $posts->lastPage(); $i++) {
+                    ?>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $posts->url($i) }}"><?php echo $i ?></a>
+                    </li>
+                    <?php
+                }
             }
-        }
-        ?>
-        <a href="{{ $posts->nextPageUrl() }}">Next</a>
-        <a href="{{ $posts->url($posts->lastPage()) }}">Last</a>
-    </div>
+            ?>
+            <li class="page-item">
+                <a class="page-link" href="{{ $posts->nextPageUrl() }}">Next</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="{{ $posts->url($posts->lastPage()) }}">Last</a>
+            </li>
+        </ul>
+    </nav>
+<?php } else {
+    ?>
+    <h5>No post</h5>
     <?php
 }
 ?>

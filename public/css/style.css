@@ -43,7 +43,7 @@ html, body {
 }
 
 .content {
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .title {
@@ -70,4 +70,19 @@ html, body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+.content .title {
+    text-align: center;
+}
+
+.signup-form .signup-button,
+.login-form .login-button,
+.create-post-form .create-post-button,
+.update-post-form .update-post-button{
+    width:100%;
+}
+
+.post-div .card{
+    margin-bottom: 15px;
 }

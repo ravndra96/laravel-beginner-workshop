@@ -10,20 +10,22 @@
     </ul>
 </div>
 @endif
-<form method="post" action="/register">
-    <div class="form-group">
-        <label>Name</label>
+<form method="post" action="/register" class="signup-form">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
         <input type="text" class="form-control" name="name" value='{{ old('name') }}'>
     </div>
-    <div class="form-group">
-        <label>Email address</label>
-        <input type="text" class="form-control" name="email" value='{{ old('email') }}'>
+    <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" value='{{ old('email') }}'>
     </div>
-    <div class="form-group">
-        <label>Password</label>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
         <input type="password" class="form-control" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary signup-button" style="width:100%">Sign Up</button>
+    </div>
     @csrf
 </form>
 
