@@ -17,8 +17,7 @@
     </div>
     <div class="form-group">
         <label>Content:</label>
-        <textarea type="text" class="form-control" name="content" value='{{ old('content') }}'>
-        </textarea>
+        <textarea type="text" class="form-control" name="content" value='{{ old('content') }}'></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     @csrf

@@ -28,6 +28,7 @@ class MyPostController extends Controller {
 
     function save_post(Request $request) {
         $data = $request->all();
+        // validation rules
         $rules = [
             "title" => 'required|max:255',
             "content" => 'required|min:1',
@@ -38,6 +39,7 @@ class MyPostController extends Controller {
                             ->withErrors($validator)
                             ->withInput();
         }
+        // create new post
         $post = new Post();
         $post->title = $request->title;
         $post->handle = Str::slug($request->title, '-');
@@ -48,6 +50,7 @@ class MyPostController extends Controller {
 
     function edit_post(Request $request, $id) {
         $data = $request->all();
+        // validation rules
         $rules = [
             "title" => [
                 'required',
@@ -56,6 +59,7 @@ class MyPostController extends Controller {
             ],
             "content" => 'required|min:1',
         ];
+        // validation message
         $message = [
             "title.unique" => "Please enter other title"
         ];
@@ -65,19 +69,19 @@ class MyPostController extends Controller {
                             ->withErrors($validator)
                             ->withInput();
         }
+        // update post
         $post = Post::find($id);
         $post->title = $request->title;
         $post->handle = Str::slug($request->title, '-');
-        ;
         $post->content = $request->content;
         $post->save();
         return redirect('/edit_post/' . $id)->with('success', 'Your post has been updated successfully');
     }
 
     function delete_post(Request $request, $id) {
+        // delete post
         Post::find($id)->delete();
         return redirect('/my_posts/')->with('success', 'Your post has been deleted successfully');
     }
 
-    //
 }

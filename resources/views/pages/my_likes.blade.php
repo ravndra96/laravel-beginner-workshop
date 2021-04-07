@@ -22,9 +22,7 @@
             ?>
             <tr>
                 <td><a href='/newsfeed/<?php echo $post->handle ?>'><?php echo $post->title ?></a></td>
-                <td>
-                    <a href="/newsfeed/<?php echo $post->handle ?>/dislike">Dislike</a>
-                </td>
+                <td><a href="/newsfeed/<?php echo $post->handle ?>/dislike">Dislike</a></td>
             </tr>
             <?php
         }

@@ -15,8 +15,10 @@ class RegisterController extends Controller {
     }
 
     public function save(Request $request) {
-//        return $request->all();  to print all request data
+
+        // return $request->all();  // to print all request data
         $data = $request->all();
+        // validation rules
         $rules = [
             "name" => 'required|max:255',
             "email" => 'required|email|unique:App\User,email',
@@ -28,11 +30,13 @@ class RegisterController extends Controller {
                             ->withErrors($validator)
                             ->withInput();
         }
+        // create new user
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
+        // login current user
         Auth::login($user);
         return redirect('/');
     }

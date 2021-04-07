@@ -15,6 +15,7 @@ class LoginController extends Controller {
 
     public function makeLogin(Request $request) {
 
+        // get only email and password from request data
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {

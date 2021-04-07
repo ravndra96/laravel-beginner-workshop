@@ -17,21 +17,21 @@
     <?php
     if (Auth::user()->posts->count() <= 0) {
         ?>
-    <tr><td colspan="2">No Post</td></tr>
+        <tr><td colspan="2">No Post</td></tr>
         <?php
-    }else{
-        foreach(Auth::user()->posts as $post){
-        ?>
-    <tr>
-        <td><?php echo $post->id ?></td>
-        <td><?php echo $post->title.' ('.$post->likes()->count().')' ?></td>
-        <td>
-            <a href="/newsfeed/<?php echo $post->handle ?>">View</a>
-            <a href="/edit_post/<?php echo $post->id ?>">Edit</a>
-            <a href="/delete_post/<?php echo $post->id ?>">Delete</a>
-        </td>
-    </tr>
-    <?php
+    } else {
+        foreach (Auth::user()->posts as $post) {
+            ?>
+            <tr>
+                <td><?php echo $post->id ?></td>
+                <td><?php echo $post->title . ' (' . $post->likes()->count() . ')' ?></td>
+                <td>
+                    <a href="/newsfeed/<?php echo $post->handle ?>">View</a>
+                    <a href="/edit_post/<?php echo $post->id ?>">Edit</a>
+                    <a href="/delete_post/<?php echo $post->id ?>">Delete</a>
+                </td>
+            </tr>
+            <?php
         }
     }
     ?>
