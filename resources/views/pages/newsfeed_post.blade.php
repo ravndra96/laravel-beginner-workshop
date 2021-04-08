@@ -28,7 +28,7 @@ if ($liked > 0) {
 if (Auth::check() && $post->user_id == Auth::user()->id) {
     ?>
     <h4 class="">Likes</h4>
-    <table style="width:100%;">
+    <table class="table table-bordered" accesskey=""style="width:100%;">
         <thead>
         <th>ID</th>
         <th>Name</th>

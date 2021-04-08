@@ -6,7 +6,7 @@
     {{ session('success') }}
 </div>
 @endif
-<table style="width:100%;margin-top:15px">
+<table class="table table-bordered" style="width:100%;margin-top:15px">
     <thead>
     <th>Title</th>
     <th>Action</th>
