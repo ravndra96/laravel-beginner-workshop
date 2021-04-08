@@ -12,22 +12,14 @@
         <!-- Styles -->
         <!-- bootstrap5 css -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <!--<link href="{{ asset('css/style.css') }}" rel="stylesheet">-->
     </head>
     <body>
-        <div class="flex-top-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    @yield('title',env('APP_NAME'))
-                </div>
-                <header class='m-b-md'>
-                    @include('snippets.header')
-                </header>
-                <div >
-                    @yield('content')
-                </div>
-            </div>
+        @include('snippets.header')
+        <div class='container'>
+            @yield('content')
         </div>
+        <!--@include('snippets.footer')-->
         <!-- bootstrap5 js -->
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>

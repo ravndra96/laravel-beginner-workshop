@@ -6,26 +6,30 @@
     {{ session('success') }}
 </div>
 @endif
-<h3 class="text-center">New Posts</h3>
-<?php if (count($posts) > 0) { ?>
-    <?php
-    foreach ($posts as $post) {
-        ?>
-        <div class="row post-div">
-            <div class="col-12">
+<h3 class="text-center mt-4">New Posts</h3>
+<div class="row mt-4 post-div">
+    <?php if (count($posts) > 0) { ?>
+        <?php
+        foreach ($posts as $post) {
+            ?>
+
+            <div class="col-3">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $post->title ?></h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><?php echo $post->content ?></h6>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <?php echo Str::words($post->content, 10, ' ...'); ?>
+                        </h6>
                         <p class="card-text"><?php echo 'Total likes: ' . $post->likes()->count() ?></p>
-                        <a href="/newsfeed/{{ $post->handle }}">Go to post</a>
+                        <a href="/newsfeed/{{ $post->handle }}">View Full Post</a>
                     </div>
                 </div>
             </div>
-        </div>
-        <?php
-    }
-    ?>
+
+            <?php
+        }
+        ?>
+    </div>
     <nav class="post-pagination">
         <ul class="pagination justify-content-end">
             <li class="page-item">
